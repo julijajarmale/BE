@@ -1,10 +1,9 @@
-import Nav from "../Back/Nav";
+
 import FrontContext from "./FrontContext";
 import FrontNav from "./Nav";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import StoryCrud from "./Story/Crud";
-import Story from "./PublicList/Story";
 import List from "./PublicList/List";
 
 function Front({ show }) {
@@ -12,6 +11,9 @@ function Front({ show }) {
 
   const [stories, setStories] = useState(null);
   const [createStory, setCreateStory] = useState(null);
+
+  const [donors, setDonors] = useState(null);
+  const [createDonor, setCreateDonor] = useState(null);
 
   //READ STORIES
   useEffect(() => {
@@ -29,11 +31,30 @@ function Front({ show }) {
     });
   }, [createStory]);
 
+  //READ DONORS
+  useEffect(() => {
+    axios
+      .get("http://localhost:3003/donors")
+      .then((res) => setDonors(res.data));
+  }, [lastUpdate]);
+
+  //CREATE DONORS
+
+  useEffect(() => {
+    if (null === createDonor) return;
+    axios.post("http://localhost:3003/donors", createDonor).then((res) => {
+      setLastUpdate(Date.now());
+    });
+  }, [createDonor]);
+
   return (
     <FrontContext.Provider
       value={{
         stories,
         setCreateStory,
+        donors,
+        setCreateDonor,
+
       }}
     >
       {show === "/" ? (

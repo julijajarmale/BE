@@ -133,7 +133,7 @@ app.post("/story", (req, res) => {
 // Read  Story
 app.get("/story", (req, res) => {
     const sql = `
-    SELECT stories.title, stories.text, stories.picture, stories.sum_need AS sum, approved
+    SELECT stories.id, stories.title, stories.text, stories.picture, stories.sum_need AS sum, approved
     FROM stories
     ORDER BY title
 `;
@@ -146,7 +146,7 @@ app.get("/story", (req, res) => {
 // Read Back Story
 app.get("/admin/story", (req, res) => {
     const sql = `
-    SELECT *
+    SELECT stories.id, stories.title, stories.text, stories.picture, stories.sum_need AS sum, approved
     FROM stories
     ORDER BY title
 `;
@@ -181,6 +181,52 @@ app.put("/admin/story/:id", (req, res) => {
         res.send({ result, msg: { text: 'OK, Cat updated. Now it is as new', type: 'success' } });
     });
   });
+
+//READ DONORS
+app.get("/donors", (req, res) => {
+    const sql = `
+  SELECT donor.id, donor.name, donor.surname, donor.sum_donated AS donation, donor.story_id
+  FROM donor 
+  LEFT JOIN stories
+  ON stories.id = donor.story_id 
+  ORDER BY name
+  `;
+    con.query(sql, (err, result) => {
+      if (err) throw err;
+      res.send(result);
+    });
+  });
+  
+  //CREATE DONOR
+  app.post("/donors", (req, res) => {
+    const sql = `
+    INSERT INTO donor
+    (name, surname, sum_donated, story_id)
+    VALUES (?, ?, ?, ?)
+    `;
+    con.query(
+      sql,
+      [
+        req.body.name,
+        req.body.surname,
+        req.body.donation,
+        req.body.story
+        
+      ],
+      (err, result) => {
+        if (err) throw err;
+        res.send({
+          result,
+          msg: { text: "OK, new and shiny product was created", type: "success" },
+        });
+      }
+    );
+  });
+  
+
+
+
+
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
