@@ -6,7 +6,7 @@ function List() {
   const { stories } = useContext(FrontContext);
 
   return (
-    <div className=" list-container">
+    <div className="container list-container">
       <div className="row">
         <div className="col-12 list-form">
           <h2>List of your Stories</h2>

@@ -14,6 +14,13 @@ function FrontNav() {
                                         color: '#10984d'
                                     } : null
                             }>Add New Story</NavLink>
+                             <NavLink to="/" className="nav-link" style={
+                                ({ isActive }) =>
+                                    isActive ? {
+                                        color: '#10984d'
+                                    } : null
+                            }>Main Page</NavLink>
+                            
                             <NavLink to="/admin/" className="nav-link" style={
                                 ({ isActive }) =>
                                     isActive ? {

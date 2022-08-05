@@ -22,9 +22,9 @@ function Product({ story }) {
   return (
     <li className="list-item">
       <div className="content">
-        <span className="item">{story.title}</span>
+      <b className="item">{story.title}</b>
         <span className="item">{story.text}</span>
-        <span className="item">{story.sum}</span>
+        <span className="item">Tikslas: {story.sum} EUR</span>
         <p style={{ color: story.approved ? "green" : "red" }}>
           Approved: {story.approved ? "Yes" : "No"}
         </p>
