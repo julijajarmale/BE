@@ -8,18 +8,19 @@ function FrontNav() {
                 <div className="row">
                     <div className="col-12">
                         <nav className="nav">
+                        <NavLink to="/story/" className="nav-link" style={
+                                ({ isActive }) =>
+                                    isActive ? {
+                                        color: '#10984d'
+                                    } : null
+                            }>Add New Story</NavLink>
                             <NavLink to="/admin/" className="nav-link" style={
                                 ({ isActive }) =>
                                     isActive ? {
-                                        color: 'crimson'
+                                        color: '#10984d'
                                     } : null
                             }>Admin</NavLink>
-                             <NavLink to="/story/" className="nav-link" style={
-                                ({ isActive }) =>
-                                    isActive ? {
-                                        color: 'crimson'
-                                    } : null
-                            }>Add story</NavLink>
+                           
                            
                               
                         </nav>

@@ -11,25 +11,14 @@ function Nav() {
                             <NavLink to="/admin/" className="nav-link" style={
                                 ({ isActive }) =>
                                     isActive ? {
-                                        color: 'blue'
+                                        color: '#10984d'
                                     } : null
                             }>Admin</NavLink>
-                            <NavLink to="/admin/municipalities" className="nav-link" style={
-                                ({ isActive }) =>
-                                    isActive ? {
-                                        color: 'blue'
-                                    } : null
-                            }>Municipalities</NavLink>
-                            <NavLink to="/admin/sectors" className="nav-link" style={
-                                ({ isActive }) =>
-                                    isActive ? {
-                                        color: 'blue'
-                                    } : null
-                            }>Sectors</NavLink>
+                            
                             <NavLink to="/" className="nav-link" style={
                                 ({ isActive }) =>
                                     isActive ? {
-                                        color: 'blue'
+                                        color: '#10984d'
                                     } : null
                             }>Main Page</NavLink>
                             <Link to="/logout">Logout</Link>
