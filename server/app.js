@@ -116,6 +116,36 @@ app.post("/login", (req, res) => {
   });
 });
 
+//Create Story
+
+app.post("/story", (req, res) => {
+    const sql = `
+    INSERT INTO stories
+    (title, text, sum_need, picture)
+    VALUES (?, ?, ?, ?)
+    `;
+    con.query(sql, [req.body.title, req.body.text, req.body.sumNeed, req.body.picture], (err, result) => {
+        if (err) throw err;
+        res.send({ result, msg: { text: 'OK, new and shiny product was created', type: 'success' } });
+    });
+});
+
+// Read  Story
+app.get("/story", (req, res) => {
+    const sql = `
+    SELECT stories.title, stories.text, stories.picture, stories.sum_need AS sum, approved
+    FROM stories
+    ORDER BY title
+`;
+    con.query(sql, (err, result) => {
+        if (err) throw err;
+        res.send(result);
+    });
+});
+
+
+
+
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })

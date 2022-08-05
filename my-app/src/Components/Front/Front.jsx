@@ -1,48 +1,54 @@
+import Nav from "../Back/Nav";
+import FrontContext from "./FrontContext";
+import FrontNav from "./Nav";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import StoryCrud from "./Story/Crud";
 
-import Nav from '../Back/Nav';
-import FrontContext from './FrontContext';
-import FrontNav from './Nav';
-//import axios from 'axios';
-//import { authConfig } from '../../Functions/auth';
+function Front({ show }) {
+  const [lastUpdate, setLastUpdate] = useState(Date.now());
 
+  const [stories, setStories] = useState(null);
+  const [createStory, setCreateStory] = useState(null);
 
-function Front({show}) {
-  
-        return (
-            <FrontContext.Provider value={{
-             
-            
+  //READ STORIES
+  useEffect(() => {
+    axios
+      .get("http://localhost:3003/story")
+      .then((res) => setStories(res.data));
+  }, [lastUpdate]);
 
-            }}>
+  //CREATE STORIES
 
-{
-                show === '/' ?
-                    <>
-                    
-                    <Nav/>
-                    
-                   
-            
-                    </>
-                    : 
-                        show === 'story' ? <div>Crud</div>: null
-            }
-               <FrontNav/>
-               <div className="container">
-                    <div className="row">
-              
-            
-               </div>
-               </div>
-               <div className="container">
-               
-                
-                    <div className="row">
-                
-                    </div>
-              
-               </div>
-            </FrontContext.Provider>
-        )
-    }
+  useEffect(() => {
+    if (null === createStory) return;
+    axios.post("http://localhost:3003/story", createStory).then((res) => {
+      setLastUpdate(Date.now());
+    });
+  }, [createStory]);
+
+  return (
+    <FrontContext.Provider
+      value={{
+        stories,
+        setCreateStory,
+      }}
+    >
+      {show === "/" ? (
+        <>
+          <Nav />
+        </>
+      ) : show === "story" ? (
+        <StoryCrud />
+      ) : null}
+      <FrontNav />
+      <div className="container">
+        <div className="row"></div>
+      </div>
+      <div className="container">
+        <div className="row"></div>
+      </div>
+    </FrontContext.Provider>
+  );
+}
 export default Front;
