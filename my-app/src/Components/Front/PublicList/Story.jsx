@@ -15,7 +15,7 @@ function Story({ story }) {
       name,
       surname,
       donation: parseFloat(donation),
-      story_id: story.id,
+      story: story.id,
     };
     setCreateDonor(data);
     setName("");
