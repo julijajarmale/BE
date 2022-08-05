@@ -4,6 +4,8 @@ import FrontNav from "./Nav";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import StoryCrud from "./Story/Crud";
+import Story from "./PublicList/Story";
+import List from "./PublicList/List";
 
 function Front({ show }) {
   const [lastUpdate, setLastUpdate] = useState(Date.now());
@@ -36,9 +38,7 @@ function Front({ show }) {
     >
       {show === "/" ? (
         <>
-          <Nav />
-
-
+          <FrontNav />
         </>
       ) : show === "story" ? (
         <StoryCrud />
@@ -46,7 +46,8 @@ function Front({ show }) {
       <FrontNav />
       <div className="container">
         <div className="row">
-          
+          <List/>
+
         </div>
       </div>
       

@@ -169,7 +169,7 @@ app.delete("/admin/story/:id", (req, res) => {
     });
   });
 
-  //Edit Order
+  //Edit Story
 app.put("/admin/story/:id", (req, res) => {
     const sql = `
     UPDATE stories
