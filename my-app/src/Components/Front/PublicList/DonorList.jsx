@@ -7,8 +7,7 @@ function DonorList() {
   const { donors } = useContext(FrontContext);
 
   return (
-    <div className=" list-container">
-      <div className="row">
+    
         <div className="col-12 list-form">
           <h2>List of Donors</h2>
           <div className="list-group">
@@ -21,8 +20,7 @@ function DonorList() {
           </ul>
           </div>
         </div>
-      </div>
-    </div>
+     
   );
 }
 

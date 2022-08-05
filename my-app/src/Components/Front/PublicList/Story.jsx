@@ -70,6 +70,7 @@ function Story({ story }) {
         <button type="button" className="btn" onClick={handleDonate}>
           DONATE
         </button>
+        <DonorList/>
         
       </div>
      
