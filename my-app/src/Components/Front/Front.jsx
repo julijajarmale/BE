@@ -37,17 +37,19 @@ function Front({ show }) {
       {show === "/" ? (
         <>
           <Nav />
+
+
         </>
       ) : show === "story" ? (
         <StoryCrud />
       ) : null}
       <FrontNav />
       <div className="container">
-        <div className="row"></div>
+        <div className="row">
+          
+        </div>
       </div>
-      <div className="container">
-        <div className="row"></div>
-      </div>
+      
     </FrontContext.Provider>
   );
 }

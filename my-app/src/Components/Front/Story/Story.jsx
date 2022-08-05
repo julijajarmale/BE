@@ -3,7 +3,7 @@ function Story({ story }) {
     <li className="list-item">
       <div className="content">
         <span className="item">{story.title}</span>
-
+        <span className="item">{story.text}</span>
         <span className="item">{story.sum}</span>
         <p style={{ color: story.approved ? "green" : "red" }}>
           Approved: {story.approved ? "Yes" : "No"}

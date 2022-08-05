@@ -143,8 +143,44 @@ app.get("/story", (req, res) => {
     });
 });
 
+// Read Back Story
+app.get("/admin/story", (req, res) => {
+    const sql = `
+    SELECT *
+    FROM stories
+    ORDER BY title
+`;
+    con.query(sql, (err, result) => {
+        if (err) throw err;
+        res.send(result);
+    });
+});
 
+//Delete Story
 
+app.delete("/admin/story/:id", (req, res) => {
+    const sql = `
+    DELETE FROM stories
+    WHERE id = ?
+    `;
+    con.query(sql, [req.params.id], (err, result) => {
+        if (err) throw err;
+        res.send({ result, msg: { text: 'OK, Cat gone', type: 'success' } });
+    });
+  });
+
+  //Edit Order
+app.put("/admin/story/:id", (req, res) => {
+    const sql = `
+    UPDATE stories
+    SET approved = ? 
+    WHERE id = ?
+    `;
+    con.query(sql, [req.body.approved, req.params.id], (err, result) => {
+        if (err) throw err;
+        res.send({ result, msg: { text: 'OK, Cat updated. Now it is as new', type: 'success' } });
+    });
+  });
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
