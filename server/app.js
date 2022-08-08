@@ -135,7 +135,7 @@ app.get("/story", (req, res) => {
     const sql = `
     SELECT stories.id, stories.title, stories.text, stories.picture, stories.sum_need AS sum, approved, stories.sum_donated AS sumDonated, stories.sum_remained AS sumRemained
     FROM stories
-    ORDER BY title
+    ORDER BY sumRemained desc
     
 `
     con.query(sql, (err, result) => {

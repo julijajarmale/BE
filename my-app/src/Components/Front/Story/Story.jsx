@@ -4,7 +4,7 @@ function Story({ story }) {
       <div className="content">
         <b className="item">{story.title}</b>
         <span className="item">{story.text}</span>
-        <span className="item">Tikslas: {story.sum} EUR</span>
+        <span className="item">Goal: {story.sum} EUR</span>
         <p style={{ color: story.approved ? "green" : "red" }}>
           Approved: {story.approved ? "Yes" : "No"}
         </p>

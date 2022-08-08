@@ -30,9 +30,9 @@ function Story({ story }) {
       <div className="content">
         <b className="item">{story.title}</b>
         <span className="item">{story.text}</span>
-        <span className="item">Tikslas: {story.sum} EUR</span>
-        <span className="item">Paaukota: {story.sumDonated} EUR</span>
-        <span className="item">Liko surinkti: {story.sumRemained} EUR</span>
+        <span className="item">Goal: {story.sum} EUR</span>
+        <span className="item">Money Raised: {story.sumDonated} EUR</span>
+        <span className="item">Goal to be reached: {story.sumRemained} EUR</span>
         
       </div>
       <div className="item herbas">
