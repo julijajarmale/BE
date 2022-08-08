@@ -14,6 +14,7 @@ function Front({ show }) {
 
   const [donors, setDonors] = useState(null);
   const [createDonor, setCreateDonor] = useState(null);
+  
 
   //READ STORIES
   useEffect(() => {
@@ -47,6 +48,7 @@ function Front({ show }) {
     });
   }, [createDonor]);
 
+  
   return (
     <FrontContext.Provider
       value={{
@@ -54,6 +56,7 @@ function Front({ show }) {
         setCreateStory,
         donors,
         setCreateDonor,
+        
 
       }}
     >

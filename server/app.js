@@ -133,9 +133,10 @@ app.post("/story", (req, res) => {
 // Read  Story
 app.get("/story", (req, res) => {
     const sql = `
-    SELECT stories.id, stories.title, stories.text, stories.picture, stories.sum_need AS sum, approved
+    SELECT stories.id, stories.title, stories.text, stories.picture, stories.sum_need AS sum, approved, stories.sum_donated AS sumDonated, stories.sum_remained AS sumRemained
     FROM stories
     ORDER BY title
+    
 `;
     con.query(sql, (err, result) => {
         if (err) throw err;
@@ -222,6 +223,7 @@ app.get("/donors", (req, res) => {
       }
     );
   });
+  
   
 
 
