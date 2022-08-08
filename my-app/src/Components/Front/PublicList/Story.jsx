@@ -1,15 +1,17 @@
 import { useState } from "react";
 import { useContext } from "react";
 import FrontContext from "../FrontContext";
-import DonorList from "./DonorList";
+import Donor from "./Donor";
+
 
 function Story({ story }) {
-  const { setCreateDonor } = useContext(FrontContext);
+  const { setCreateDonor, donors } = useContext(FrontContext);
 
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [donation, setDonation] = useState("");
 
+  
   const handleDonate = () => {
     const data = {
       name,
@@ -70,7 +72,20 @@ function Story({ story }) {
         <button type="button" className="btn" onClick={handleDonate}>
           DONATE
         </button>
-        <DonorList/>
+        
+        <div className="col-12 list-form">
+          <h2>List of Donors</h2>
+          <div className="list-group">
+        <ul className="list-group-item">
+            { donors
+              ? donors.map((donor) => ( donor.story_id === story.id ?
+                  <Donor key={donor.id} donor={donor}></Donor> : null
+                ))
+              : null}
+              
+          </ul>
+          </div>
+          </div>
         
       </div>
      
