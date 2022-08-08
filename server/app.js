@@ -121,10 +121,10 @@ app.post("/login", (req, res) => {
 app.post("/story", (req, res) => {
     const sql = `
     INSERT INTO stories
-    (title, text, sum_need, picture)
-    VALUES (?, ?, ?, ?)
+    (title, text, sum_need, picture, sum_remained)
+    VALUES (?, ?, ?, ?, ?)
     `;
-    con.query(sql, [req.body.title, req.body.text, req.body.sumNeed, req.body.picture], (err, result) => {
+    con.query(sql, [req.body.title, req.body.text, req.body.sum, req.body.picture, req.body.sum_remained], (err, result) => {
         if (err) throw err;
         res.send({ result, msg: { text: 'OK, new and shiny product was created', type: 'success' } });
     });
@@ -133,10 +133,11 @@ app.post("/story", (req, res) => {
 // Read  Story
 app.get("/story", (req, res) => {
     const sql = `
-    SELECT stories.id, stories.title, stories.text, stories.picture, stories.sum_need AS sum, approved, stories.sum_donated AS sumDonated, stories.sum_remained
+    SELECT stories.id, stories.title, stories.text, stories.picture, stories.sum_need AS sum, approved, stories.sum_donated AS sumDonated, stories.sum_remained AS sumRemained
+    FROM stories
     ORDER BY title
     
-`;
+`
     con.query(sql, (err, result) => {
         if (err) throw err;
         res.send(result);
@@ -226,10 +227,10 @@ app.get("/donors", (req, res) => {
   app.put("/story/:id", (req, res) => {
     const sql = `
           UPDATE stories
-          SET sum_donated = sum_donated + ?, sum_remained = sum - sum_donated ?
+          SET sum_donated = sum_donated + ?, sum_remained = sum_remained -?
           WHERE id = ?
       `;
-    con.query(sql, [req.body.donation, req.params.id], (err, result) => {
+    con.query(sql, [req.body.donation, req.body.donation, req.params.id], (err, result) => {
       if (err) throw err;
       res.send({ result, msg: { text: "Tu prabalsavai", type: "danger" } });
     });

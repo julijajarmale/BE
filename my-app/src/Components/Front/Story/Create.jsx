@@ -28,6 +28,8 @@ const handleCreate = () => {
       text,
       picture: picture,
       sum: parseFloat(sumNeed),
+      sum_remained: parseFloat(sumNeed),
+
      };
     setCreateStory(data);
     setTitle("");
