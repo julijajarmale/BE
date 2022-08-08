@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useContext } from "react";
 import FrontContext from "../FrontContext";
+import CreateDonor from "./CreateDonor";
 import Donor from "./Donor";
 
 function Story({ story }) {
@@ -35,6 +36,10 @@ function Story({ story }) {
         <span className="item">Goal to be reached: {story.sumRemained} EUR</span>
         
       </div>
+      {story.sumRemained === 0 ?
+          <p className='heading' style={{ color: 'red' }}>GOAL HAS BEEN REACHED!</p> :
+          null
+        }
       <div className="item herbas">
         {story.picture ? (
           <div className="photo-bin">
@@ -42,40 +47,13 @@ function Story({ story }) {
           </div>
         ) : null}
       </div>
+      
+      {story.sumRemained > 0 ?
+          <CreateDonor/> :
+          null
+        }
      
-      <div className="content">
-        <h4>Make Donation!</h4>
-        <div className="form-row">
-          <input
-            type="text"
-            className="input"
-            placeholder="Enter Name"
-            onChange={(e) => setName(e.target.value)}
-            value={name}
-          />
-        </div>
-        <div className="form-row input">
-          <input
-            type="text"
-            className="input"
-            placeholder="Enter Surname"
-            onChange={(e) => setSurname(e.target.value)}
-            value={surname}
-          />
-        </div>
-        <div className="form-row">
-          <input
-            type="text"
-            className="input"
-            placeholder="Enter Sum"
-            onChange={(e) => setDonation(e.target.value)}
-            value={donation}
-          />
-        </div>
-
-        <button type="button" className="btn" onClick={handleDonate}>
-          DONATE
-        </button>
+     
 
         <div className="col-12 list-form">
           <h2>List of Donors</h2>
@@ -91,7 +69,7 @@ function Story({ story }) {
             </ul>
           </div>
         </div>
-      </div>
+      
     </li>
   );
 }
