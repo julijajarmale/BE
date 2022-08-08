@@ -4,7 +4,7 @@ import FrontContext from "../FrontContext";
 import Donor from "./Donor";
 
 function Story({ story }) {
-  const { setCreateDonor, donors, stories } = useContext(FrontContext);
+  const { setCreateDonor, donors, setDonationSum} = useContext(FrontContext);
 
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
@@ -18,6 +18,7 @@ function Story({ story }) {
       story: story.id,
     };
     setCreateDonor(data);
+    setDonationSum({ id: story.id, donation: donation })
     setName("");
     setSurname("");
     setDonation("");
@@ -30,6 +31,9 @@ function Story({ story }) {
         <b className="item">{story.title}</b>
         <span className="item">{story.text}</span>
         <span className="item">Tikslas: {story.sum} EUR</span>
+        <span className="item">Paaukota: {story.sumDonated} EUR</span>
+        <span className="item">Liko surinkti: {story.sumRemained} EUR</span>
+        
       </div>
       <div className="item herbas">
         {story.picture ? (

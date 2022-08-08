@@ -14,6 +14,9 @@ function Front({ show }) {
 
   const [donors, setDonors] = useState(null);
   const [createDonor, setCreateDonor] = useState(null);
+
+  const [donationSum, setDonationSum] = useState(null);
+
   
 
   //READ STORIES
@@ -48,6 +51,17 @@ function Front({ show }) {
     });
   }, [createDonor]);
 
+   //EDIT Stories sums
+  useEffect(() => {
+    if (null === donationSum) return;
+    axios
+      .put("http://localhost:3003/story/" + donationSum.id, donationSum)
+      .then((_) => {
+        setLastUpdate(Date.now());
+      });
+  }, [donationSum]);
+
+
   
   return (
     <FrontContext.Provider
@@ -56,6 +70,7 @@ function Front({ show }) {
         setCreateStory,
         donors,
         setCreateDonor,
+        setDonationSum,
         
 
       }}

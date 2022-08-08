@@ -133,8 +133,7 @@ app.post("/story", (req, res) => {
 // Read  Story
 app.get("/story", (req, res) => {
     const sql = `
-    SELECT stories.id, stories.title, stories.text, stories.picture, stories.sum_need AS sum, approved, stories.sum_donated AS sumDonated, stories.sum_remained AS sumRemained
-    FROM stories
+    SELECT stories.id, stories.title, stories.text, stories.picture, stories.sum_need AS sum, approved, stories.sum_donated AS sumDonated, stories.sum_remained
     ORDER BY title
     
 `;
@@ -223,8 +222,18 @@ app.get("/donors", (req, res) => {
       }
     );
   });
-  
-  
+  //EDIT STORIES
+  app.put("/story/:id", (req, res) => {
+    const sql = `
+          UPDATE stories
+          SET sum_donated = sum_donated + ?, sum_remained = sum - sum_donated ?
+          WHERE id = ?
+      `;
+    con.query(sql, [req.body.donation, req.params.id], (err, result) => {
+      if (err) throw err;
+      res.send({ result, msg: { text: "Tu prabalsavai", type: "danger" } });
+    });
+  });
 
 
 
