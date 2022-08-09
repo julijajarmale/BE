@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { useContext } from "react";
 import FrontContext from "../FrontContext";
 import getBase64 from "../../../Functions/getBase64";
+import Logo from "./logo";
 
 function Create() {
   const { setCreateStory } = useContext(FrontContext);
@@ -88,6 +89,7 @@ function Create() {
             </button>
           </form>
         </div>
+        <div className="col-4"><Logo/></div>
       </div>
     </div>
   );
