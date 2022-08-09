@@ -1,10 +1,12 @@
+
 import { useContext } from "react";
 import FrontContext from "../FrontContext";
 import Story from "./Story";
 
 function List() {
-  const { stories } = useContext(FrontContext);
+  const { stories} = useContext(FrontContext);
 
+ 
   return (
     <div className=" list-container">
       <div className="row">
@@ -18,6 +20,7 @@ function List() {
                 ))
               : null}
           </ul>
+      
           </div>
         </div>
       </div>
