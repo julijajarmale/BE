@@ -7,7 +7,7 @@ function StoryCrud() {
     <>
       <Nav />
       <Create />
-      <List/>
+      <List />
     </>
   );
 }

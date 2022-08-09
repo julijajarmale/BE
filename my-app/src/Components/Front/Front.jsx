@@ -1,4 +1,3 @@
-
 import FrontContext from "./FrontContext";
 import FrontNav from "./Nav";
 import axios from "axios";
@@ -16,8 +15,6 @@ function Front({ show }) {
   const [createDonor, setCreateDonor] = useState(null);
 
   const [donationSum, setDonationSum] = useState(null);
-
-  
 
   //READ STORIES
   useEffect(() => {
@@ -51,7 +48,7 @@ function Front({ show }) {
     });
   }, [createDonor]);
 
-   //EDIT Stories sums
+  //EDIT Stories sums
   useEffect(() => {
     if (null === donationSum) return;
     axios
@@ -61,8 +58,6 @@ function Front({ show }) {
       });
   }, [donationSum]);
 
-
-  
   return (
     <FrontContext.Provider
       value={{
@@ -71,8 +66,6 @@ function Front({ show }) {
         donors,
         setCreateDonor,
         setDonationSum,
-        
-
       }}
     >
       {show === "/" ? (
@@ -85,11 +78,9 @@ function Front({ show }) {
       <FrontNav />
       <div className="container">
         <div className="row">
-          <List/>
-
+          <List />
         </div>
       </div>
-      
     </FrontContext.Provider>
   );
 }

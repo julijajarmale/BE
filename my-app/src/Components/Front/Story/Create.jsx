@@ -5,38 +5,35 @@ import FrontContext from "../FrontContext";
 import getBase64 from "../../../Functions/getBase64";
 
 function Create() {
- 
-const {setCreateStory} = useContext(FrontContext)
+  const { setCreateStory } = useContext(FrontContext);
 
-const [title, setTitle] = useState("");
-const [text, setText] = useState("");
-const [sumNeed, setSumNeed] = useState("");
+  const [title, setTitle] = useState("");
+  const [text, setText] = useState("");
+  const [sumNeed, setSumNeed] = useState("");
 
-const fileInput = useRef();
+  const fileInput = useRef();
   const [picture, setPicture] = useState(null);
 
   const doPhoto = () => {
     getBase64(fileInput.current.files[0])
-    .then(picture => setPicture(picture))
-    .catch(_ => {
+      .then((picture) => setPicture(picture))
+      .catch((_) => {
         // tylim
-    })
-  }
-const handleCreate = () => {
-    const data = { 
-      title, 
+      });
+  };
+  const handleCreate = () => {
+    const data = {
+      title,
       text,
       picture: picture,
       sum: parseFloat(sumNeed),
       sum_remained: parseFloat(sumNeed),
-
-     };
+    };
     setCreateStory(data);
     setTitle("");
     setText("");
     setPicture(null);
     setSumNeed("");
-   
   };
 
   return (
@@ -56,7 +53,6 @@ const handleCreate = () => {
             </div>
             <div className="form-row">
               <textarea
-              
                 className="input"
                 placeholder="Enter Story"
                 onChange={(e) => setText(e.target.value)}
@@ -72,24 +68,26 @@ const handleCreate = () => {
                 value={sumNeed}
               />
             </div>
-    
+
             <div className="form-row">
-                    <label>Upload Story Picture</label>
-                    <input ref={fileInput} type="file" className="input" onChange={doPhoto}/>
-                </div>
-                {
-                    picture ? <div className="herbas"><img src={picture} alt="nice"/></div> : null
-                }
-            <button
-              type="button"
-              className="btn"
-              onClick={handleCreate}
-            >
+              <label>Upload Story Picture</label>
+              <input
+                ref={fileInput}
+                type="file"
+                className="input"
+                onChange={doPhoto}
+              />
+            </div>
+            {picture ? (
+              <div className="herbas">
+                <img src={picture} alt="nice" />
+              </div>
+            ) : null}
+            <button type="button" className="btn" onClick={handleCreate}>
               Create
             </button>
           </form>
         </div>
-        
       </div>
     </div>
   );

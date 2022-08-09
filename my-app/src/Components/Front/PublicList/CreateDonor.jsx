@@ -28,7 +28,7 @@ function CreateDonor({story}) {
     };
 
   return (
-    <div className="content">
+    <div className="donor">
         
         <h4>Make Donation!</h4>
         <div className="form-row">
@@ -40,7 +40,7 @@ function CreateDonor({story}) {
             value={name}
           />
         </div>
-        <div className="form-row input">
+        <div className="form-row">
           <input
             type="text"
             className="input"

@@ -18,14 +18,16 @@ function Product({ story }) {
     setApproveStory(data);
   };
 
-
   return (
     <li className="admin-list-item">
       <div className="content">
-      <b className="item">{story.title}</b>
+        <b className="item">{story.title}</b>
         <span className="item">{story.text}</span>
         <b className="item">Goal: {story.sum} EUR</b>
-        <span className="item" style={{ color: story.approved ? "green" : "red" }}>
+        <span
+          className="item"
+          style={{ color: story.approved ? "green" : "red" }}
+        >
           {story.approved ? "Approved" : "Not approved"}
         </span>
       </div>
@@ -41,7 +43,11 @@ function Product({ story }) {
         <button type="button" className="button btn4" onClick={handleApprove}>
           Approve
         </button>
-        <button type="button" className="button btn5" onClick={handleDissaprove}>
+        <button
+          type="button"
+          className="button btn5"
+          onClick={handleDissaprove}
+        >
           DisApprove
         </button>
         <button type="button" className="button btn3" onClick={handleDelete}>
