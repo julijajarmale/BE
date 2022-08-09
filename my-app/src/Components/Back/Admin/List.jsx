@@ -10,7 +10,7 @@ function List() {
     <div className="container list-container">
       <div className="row">
         <div className="col-12 list-form">
-          <h2>List of products</h2>
+          <h2>List of Stories</h2>
           <div className="list-group">
           <ul className="list-group-item">
             { stories 

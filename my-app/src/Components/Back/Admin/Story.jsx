@@ -20,31 +20,31 @@ function Product({ story }) {
 
 
   return (
-    <li className="list-item">
+    <li className="admin-list-item">
       <div className="content">
       <b className="item">{story.title}</b>
         <span className="item">{story.text}</span>
-        <span className="item">Tikslas: {story.sum} EUR</span>
-        <p style={{ color: story.approved ? "green" : "red" }}>
-          Approved: {story.approved ? "Yes" : "No"}
-        </p>
+        <b className="item">Goal: {story.sum} EUR</b>
+        <span className="item" style={{ color: story.approved ? "green" : "red" }}>
+          {story.approved ? "Approved" : "Not approved"}
+        </span>
       </div>
-      <div className="item herbas">
+      <div className="photo-box">
         {story.picture ? (
-          <div className="photo-bin">
+          <div className="herbas">
             <img src={story.picture} alt={story.title} />
           </div>
         ) : null}
       </div>
 
       <div className="buttons">
-        <button type="button" className="buttons btn4" onClick={handleApprove}>
+        <button type="button" className="button btn4" onClick={handleApprove}>
           Approve
         </button>
-        <button type="button" className="buttons btn5" onClick={handleDissaprove}>
+        <button type="button" className="button btn5" onClick={handleDissaprove}>
           DisApprove
         </button>
-        <button type="button" className="buttons btn3" onClick={handleDelete}>
+        <button type="button" className="button btn3" onClick={handleDelete}>
           Delete
         </button>
       </div>

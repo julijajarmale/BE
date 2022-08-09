@@ -1,30 +1,14 @@
-import { useState } from "react";
+
 import { useContext } from "react";
 import FrontContext from "../FrontContext";
 import CreateDonor from "./CreateDonor";
 import Donor from "./Donor";
 
 function Story({ story }) {
-  const { setCreateDonor, donors, setDonationSum} = useContext(FrontContext);
+  const {  donors} = useContext(FrontContext);
 
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
-  const [donation, setDonation] = useState("");
-
-  const handleDonate = () => {
-    const data = {
-      name,
-      surname,
-      donation: parseFloat(donation),
-      story: story.id,
-    };
-    setCreateDonor(data);
-    setDonationSum({ id: story.id, donation: donation })
-    setName("");
-    setSurname("");
-    setDonation("");
-    console.log(story.id);
-  };
+ 
+  
 
   return (
     <li className="list-item">
