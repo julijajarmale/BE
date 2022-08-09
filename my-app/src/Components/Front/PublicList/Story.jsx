@@ -86,10 +86,12 @@ function Story({ story }) {
               </button>
             </div>
           ) : (
-            <p className="goal" style={{ color: "red" }}>
-              GOAL HAS BEEN REACHED!
+            <p className="goal">
+              YAAAAY GOAL HAS BEEN REACHED!
             </p>
+            
           )}
+          
         </div>
 
         <div className="second-row">
