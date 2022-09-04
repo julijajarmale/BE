@@ -1,3 +1,26 @@
+
+# Author and design
+
+Julija Ilginytė-Jarmalė: [Github](https://github.com/julijajarmale) [LinkedIn](https://www.linkedin.com/in/julija-ilginyte-jarmale/) <br>
+
+# Book-app screenshots
+![Screenshot](./screenshots/Screenshot_11.jpg)
+![Screenshot](./screenshots/Screenshot_6.jpg)
+![Screenshot](./screenshots/Screenshot_7.jpg)
+![Screenshot](./screenshots/Screenshot_8.jpg)
+![Screenshot](./screenshots/Screenshot_9.jpg)
+![Screenshot](./screenshots/Screenshot_10.jpg)
+![Screenshot](./screenshots/Screenshot_12.jpg)
+
+
+# Project features
+React.JS
+Express.JS
+HTML/CSS/JS
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

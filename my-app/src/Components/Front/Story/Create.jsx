@@ -89,7 +89,9 @@ function Create() {
             </button>
           </form>
         </div>
-        <div className="col-4"><Logo/></div>
+        <div className="col-4">
+          <Logo />
+        </div>
       </div>
     </div>
   );
