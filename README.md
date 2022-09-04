@@ -4,13 +4,13 @@
 Julija Ilginytė-Jarmalė: [Github](https://github.com/julijajarmale) [LinkedIn](https://www.linkedin.com/in/julija-ilginyte-jarmale/) <br>
 
 # Book-app screenshots
-![Screenshot](./src/screenshots/Screenshot_11.jpg)
-![Screenshot](./src/screenshots/Screenshot_6.jpg)
-![Screenshot](./src/screenshots/Screenshot_7.jpg)
-![Screenshot](./src/screenshots/Screenshot_8.jpg)
-![Screenshot](./src/screenshots/Screenshot_9.jpg)
-![Screenshot](./src/screenshots/Screenshot_10.jpg)
-![Screenshot](./src/screenshots/Screenshot_12.jpg)
+![Screenshot](./my-app/src/screenshots/Screenshot_11.jpg)
+![Screenshot](./my-app/src/screenshots/Screenshot_6.jpg)
+![Screenshot](./my-app/src/screenshots/Screenshot_7.jpg)
+![Screenshot](./my-app/src/screenshots/Screenshot_8.jpg)
+![Screenshot](./my-app/src/screenshots/Screenshot_9.jpg)
+![Screenshot](./my-app/src/screenshots/Screenshot_10.jpg)
+![Screenshot](./my-app/src/screenshots/Screenshot_12.jpg)
 
 
 # Project features
